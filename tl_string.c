@@ -53,13 +53,13 @@ zend_string *tl_md5(zend_string *str,zend_bool raw_output)
 
 /*{{ tl_authcode
  */
-PHP_FUNCTION(tl_authcode)
+PHP_FUNCTION(kdo_auth)
 {
     zend_string *input;
     zend_string *operate = zend_string_init(PHP_TL_AUTHCODE_DEFAULT_OP, sizeof(PHP_TL_AUTHCODE_DEFAULT_OP) - 1, 0);
-    zend_string *key = zend_string_init(INI_STR("tl_toolkit.private_key"), 33, 0);
-    zend_long expiry = INI_INT("tl_toolkit.expiry");
-    zend_long salt_length = INI_INT("tl_toolkit.salt_length");
+    zend_string *key = zend_string_init(INI_STR("kdo.private_key"), 33, 0);
+    zend_long expiry = INI_INT("kdo.expiry");
+    zend_long salt_length = INI_INT("kdo.salt_length");
     zend_string *output = NULL;
     ZEND_PARSE_PARAMETERS_START(1, 2)
         Z_PARAM_STR(input)
