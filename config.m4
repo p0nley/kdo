@@ -1,5 +1,5 @@
 dnl $Id$
-dnl config.m4 for extension tl_toolkit
+dnl config.m4 for extension kdo
 
 dnl Comments in this file start with the string 'dnl'.
 dnl Remove where necessary. This file will not work
@@ -59,5 +59,5 @@ if test "$PHP_TL_TOOLKIT" != "no"; then
   dnl
   dnl PHP_SUBST(TL_TOOLKIT_SHARED_LIBADD)
 
-  PHP_NEW_EXTENSION(tl_toolkit, tl_toolkit.c tl_string.c, $ext_shared, -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1)
+  PHP_NEW_EXTENSION(kdo, tl_toolkit.c tl_string.c, $ext_shared, -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1)
 fi
