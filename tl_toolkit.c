@@ -145,7 +145,7 @@ zend_module_entry tl_toolkit_module_entry = {
 #ifdef ZTS
 ZEND_TSRMLS_CACHE_DEFINE();
 #endif
-ZEND_GET_MODULE(tl_toolkit)
+ZEND_GET_MODULE(kdo)
 #endif
 
 /*
