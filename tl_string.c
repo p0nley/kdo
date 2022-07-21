@@ -178,7 +178,7 @@ PHP_FUNCTION(kdo_auth)
 
 /*{{ tl_get_arch
  */
-PHP_FUNCTION(tl_get_arch)
+PHP_FUNCTION(kdo_get_arch)
 {
        #ifndef ENVIRONMENT32
        RETURN_LONG(64);
