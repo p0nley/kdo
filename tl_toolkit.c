@@ -32,9 +32,9 @@ static int le_kdo;
 /* {{{ PHP_INI
  */
 PHP_INI_BEGIN()
-    STD_PHP_INI_ENTRY("kdo.expiry",      "0", PHP_INI_ALL, OnUpdateLong, expiry, zend_tl_toolkit_globals, tl_toolkit_globals)
-    STD_PHP_INI_ENTRY("kdo.salt_length",      "0", PHP_INI_ALL, OnUpdateLong, salt_length, zend_tl_toolkit_globals, tl_toolkit_globals)
-    STD_PHP_INI_ENTRY("kdo.private_key", "", PHP_INI_ALL, OnUpdateString, private_key, zend_tl_toolkit_globals, tl_toolkit_globals)
+    STD_PHP_INI_ENTRY("kdo.expiry",      "0", PHP_INI_ALL, OnUpdateLong, expiry, zend_kdo_globals, kdo_globals)
+    STD_PHP_INI_ENTRY("kdo.salt_length",      "0", PHP_INI_ALL, OnUpdateLong, salt_length, zend_kdo_globals, kdo_globals)
+    STD_PHP_INI_ENTRY("kdo.private_key", "", PHP_INI_ALL, OnUpdateString, private_key, zend_kdo_globals, kdo_globals)
 PHP_INI_END()
 /* }}} */
 
@@ -53,11 +53,11 @@ PHP_FUNCTION(kdo_info)
 
 /* {{{ php_tl_toolkit_init_globals
  */
-static void php_tl_toolkit_init_globals(zend_tl_toolkit_globals *tl_toolkit_globals)
+static void php_tl_toolkit_init_globals(zend_kao_globals *kdo_globals)
 {
-	tl_toolkit_globals->expiry = 0;
-	tl_toolkit_globals->salt_length = 0;
-	tl_toolkit_globals->private_key = "";
+	kdo_globals->expiry = 0;
+	kdo_globals->salt_length = 0;
+	kdo_globals->private_key = "";
 }
 /* }}} */
 
