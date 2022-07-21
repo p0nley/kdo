@@ -24,10 +24,10 @@
 
 #include "php_tl_toolkit.h"
 
-ZEND_DECLARE_MODULE_GLOBALS(tl_toolkit)
+ZEND_DECLARE_MODULE_GLOBALS(kdo)
 
 /* True global resources - no need for thread safety here */
-static int le_tl_toolkit;
+static int le_kdo;
 
 /* {{{ PHP_INI
  */
