@@ -53,7 +53,7 @@ PHP_FUNCTION(kdo_info)
 
 /* {{{ php_tl_toolkit_init_globals
  */
-static void php_tl_toolkit_init_globals(zend_kao_globals *kdo_globals)
+static void php_tl_toolkit_init_globals(zend_kdo_globals *kdo_globals)
 {
 	kdo_globals->expiry = 0;
 	kdo_globals->salt_length = 0;
