@@ -41,7 +41,7 @@ PHP_INI_END()
 
 /** {{{ proto string tl_toolkit_info()
  */
-PHP_FUNCTION(tl_toolkit_info)
+PHP_FUNCTION(kdo_info)
 {
   zend_string *strg;
   strg = strpprintf(0, "kdo version=%s", PHP_TL_TOOLKIT_VERSION);
@@ -55,15 +55,15 @@ PHP_FUNCTION(tl_toolkit_info)
  */
 static void php_tl_toolkit_init_globals(zend_tl_toolkit_globals *tl_toolkit_globals)
 {
-	kdo_globals->expiry = 0;
-	kdo_globals->salt_length = 0;
-	kdo_globals->private_key = "";
+	tl_toolkit_globals->expiry = 0;
+	tl_toolkit_globals->salt_length = 0;
+	tl_toolkit_globals->private_key = "";
 }
 /* }}} */
 
 /* {{{ PHP_MINIT_FUNCTION
  */
-PHP_MINIT_FUNCTION(tl_toolkit)
+PHP_MINIT_FUNCTION(kdo)
 {
 	REGISTER_INI_ENTRIES();
 	return SUCCESS;
@@ -72,7 +72,7 @@ PHP_MINIT_FUNCTION(tl_toolkit)
 
 /* {{{ PHP_MSHUTDOWN_FUNCTION
  */
-PHP_MSHUTDOWN_FUNCTION(tl_toolkit)
+PHP_MSHUTDOWN_FUNCTION(kdo)
 {
 	UNREGISTER_INI_ENTRIES();
 	return SUCCESS;
@@ -82,7 +82,7 @@ PHP_MSHUTDOWN_FUNCTION(tl_toolkit)
 /* Remove if there's nothing to do at request start */
 /* {{{ PHP_RINIT_FUNCTION
  */
-PHP_RINIT_FUNCTION(tl_toolkit)
+PHP_RINIT_FUNCTION(kdo)
 {
 #if defined(COMPILE_DL_TL_TOOLKIT) && defined(ZTS)
 	ZEND_TSRMLS_CACHE_UPDATE();
@@ -94,7 +94,7 @@ PHP_RINIT_FUNCTION(tl_toolkit)
 /* Remove if there's nothing to do at request end */
 /* {{{ PHP_RSHUTDOWN_FUNCTION
  */
-PHP_RSHUTDOWN_FUNCTION(tl_toolkit)
+PHP_RSHUTDOWN_FUNCTION(kdo)
 {
 	return SUCCESS;
 }
@@ -102,7 +102,7 @@ PHP_RSHUTDOWN_FUNCTION(tl_toolkit)
 
 /* {{{ PHP_MINFO_FUNCTION
  */
-PHP_MINFO_FUNCTION(tl_toolkit)
+PHP_MINFO_FUNCTION(kdo)
 {
 	php_info_print_table_start();
 	php_info_print_table_header(2, "kdo support", "enabled");
@@ -118,9 +118,9 @@ PHP_MINFO_FUNCTION(tl_toolkit)
  * Every user visible function must have an entry in tl_toolkit_functions[].
  */
 const zend_function_entry tl_toolkit_functions[] = {
-	PHP_FE(tl_toolkit_info, NULL)
-	PHP_FE(tl_authcode, NULL)
-	PHP_FE(tl_get_arch, NULL)
+	PHP_FE(kdo_info, NULL)
+	PHP_FE(kdo_auth, NULL)
+	PHP_FE(kdo_get_arch, NULL)
 	PHP_FE_END
 };
 /* }}} */
@@ -129,13 +129,13 @@ const zend_function_entry tl_toolkit_functions[] = {
  */
 zend_module_entry tl_toolkit_module_entry = {
 	STANDARD_MODULE_HEADER,
-	"tl_toolkit",
+	"kdo",
 	tl_toolkit_functions,
-	PHP_MINIT(tl_toolkit),
-	PHP_MSHUTDOWN(tl_toolkit),
-	PHP_RINIT(tl_toolkit),		/* Replace with NULL if there's nothing to do at request start */
-	PHP_RSHUTDOWN(tl_toolkit),	/* Replace with NULL if there's nothing to do at request end */
-	PHP_MINFO(tl_toolkit),
+	PHP_MINIT(kdo),
+	PHP_MSHUTDOWN(kdo),
+	PHP_RINIT(kdo),		/* Replace with NULL if there's nothing to do at request start */
+	PHP_RSHUTDOWN(kdo),	/* Replace with NULL if there's nothing to do at request end */
+	PHP_MINFO(kdo),
 	PHP_TL_TOOLKIT_VERSION,
 	STANDARD_MODULE_PROPERTIES
 };
