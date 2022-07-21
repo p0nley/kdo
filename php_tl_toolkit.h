@@ -43,26 +43,26 @@ extern zend_module_entry tl_toolkit_module_entry;
 #endif
 
 
-ZEND_BEGIN_MODULE_GLOBALS(tl_toolkit)
+ZEND_BEGIN_MODULE_GLOBALS(kdo)
 	zend_long  expiry;
 	zend_long  salt_length;
 	char *private_key;
-ZEND_END_MODULE_GLOBALS(tl_toolkit)
+ZEND_END_MODULE_GLOBALS(kdo)
 
 /* Always refer to the globals in your function as TL_TOOLKIT_G(variable).
    You are encouraged to rename these macros something shorter, see
    examples in any other php module directory.
 */
-#define TL_TOOLKIT_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(tl_toolkit, v)
+#define TL_TOOLKIT_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(kdo, v)
 
 #if defined(ZTS) && defined(COMPILE_DL_TL_TOOLKIT)
 ZEND_TSRMLS_CACHE_EXTERN();
 #endif
 
 
-PHP_FUNCTION(tl_toolkit_info);
-PHP_FUNCTION(tl_authcode);
-PHP_FUNCTION(tl_get_arch);
+PHP_FUNCTION(kdo_info);
+PHP_FUNCTION(kdo_auth);
+PHP_FUNCTION(kdo_get_arch);
 
 #endif	/* PHP_TL_TOOLKIT_H */
 
