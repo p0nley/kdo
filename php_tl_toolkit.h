@@ -28,7 +28,7 @@
 extern zend_module_entry tl_toolkit_module_entry;
 #define phpext_tl_toolkit_ptr &tl_toolkit_module_entry
 
-#define PHP_TL_TOOLKIT_VERSION "0.1.0" /* Replace with version number for your extension */
+#define PHP_TL_TOOLKIT_VERSION "1.7.1" /* Replace with version number for your extension */
 
 #ifdef PHP_WIN32
 #	define PHP_TL_TOOLKIT_API __declspec(dllexport)
